@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <!-- 抽取公共内容 -->
+    <property name="FILE_PATTERN" value="%d{HH:mm:ss.SSS} [%-5p] %c: %m%n"/>
+    <property name="CHARSET" value="UTF-8"/>
+    <property name="BATH_PATH" value="/var/log"/>
+    <!-- rollingFileAppender -->
+    <appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${BATH_PATH}/logback.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>${CHARSET}}</charset>
+            <pattern>${FILE_PATTERN}</pattern>
+        </encoder>
+        <!-- 基于时间的滚动策略 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 文件名称支持压缩 -->
+            <fileNamePattern>${BATH_PATH}/logback_rolling_%d{yy-MM-dd}.log.gz</fileNamePattern>
+            <!-- 删除20秒以前的旧文件（时间单位取决于fileNamePattern） -->
+            <maxHistory>7</maxHistory>
+            <!-- 总日志大小限制（超过了，就删除最早的日志） -->
+            <totalSizeCap>50MB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+    <!-- 设置logger -->
+    <logger name="com.lding" level="INFO" additivity="false">
+        <appender-ref ref="rollingFile"/>
+    </logger>
+</configuration>

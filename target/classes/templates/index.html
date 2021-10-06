@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Digest</title>
+
+  <!--|Google Fonts|-->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+  <!--|Icon Fonts(Font Awesome)|-->
+  <link href='assets/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+  <!--|Magnific Popup|-->
+  <link href='assets/css/magnific-popup.css' rel='stylesheet' type='text/css'>
+  <!--|Owl|-->
+  <link href='assets/css/owl.carousel.css' rel='stylesheet' type='text/css'>
+  <!--|Bootstrap|-->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+  <!--|Site Stylesheet|-->
+  <link href="assets/css/style.css" rel="stylesheet" type="text/css"> <!--Default Color (amber) -->
+
+  <!--|Favicon|-->
+  <link rel="icon" href="assets/images/favicon.ico">
+  <!--|Touch Icons|-->
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-touch-icon-114x114.png">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="assets/js/html5shiv.min.js"></script>
+  <script src="assets/js/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+<!--|Preloader|-->
+<div class="preloader">
+  <div class="cssload-thecube">
+    <div class="cssload-cube cssload-c1"></div>
+    <div class="cssload-cube cssload-c2"></div>
+    <div class="cssload-cube cssload-c4"></div>
+    <div class="cssload-cube cssload-c3"></div>
+  </div>
+</div> <!--|End Preloader|-->
+
+<div class="wrapper">
+  <!--|===================================================================
+  | Sidebar
+  |=======================================================================|-->
+  <aside class="sidebar">
+    <a href="#" class="navbar-close-btn"><i class="fa fa-close"></i></a>
+
+    <div class="sidebar-inner">
+      <!--|Header|-->
+      <header class="header">
+        <!--Logo-->
+        <a class="logo" href="index.html" th:href="@{/}"><img src="assets/images/logo.png" alt=""></a>
+        <!--Slogan-->
+        <p class="slogan">Responsive Personal Template</p>
+      </header> <!--|End Header|-->
+
+      <!--|Navbar|-->
+      <nav class="fp-navbar scrollspy">
+        <ul class="nav">
+          <li class="active"><a href="#about">About</a></li>
+          <li><a href="#services">Whats I do?</a></li>
+          <li><a href="#qualification">qualification</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="admin/login.html" th:href="@{/admin/user}" class="admin-group">Admin</a></li>
+        </ul>
+      </nav> <!--|End Navbar|-->
+
+      <!--|Footer|-->
+      <div class="footer">
+        <!--Social Links-->
+        <div class="social-links">
+          <p>Where Else?</p>
+          <a href="https://www.youtube.com/channel/UC_tPB2iSPTpraRj18xHKaWw" target="_blank"><i class="fa fa-youtube"></i></a>
+          <a href="https://www.facebook.com/dinglei1028" target="_blank"><i class="fa fa-facebook-square"></i></a>
+          <a href="https://twitter.com/avril_for_me" target="_blank"><i class="fa fa-twitter-square"></i></a>
+          <a href="https://github.com/coder-avril" target="_blank"><i class="fa fa-github"></i></a>
+        </div>
+
+        <!--Copyright-->
+        <p class="copyright" th:text="${website.link}">Copyright &copy; 2020.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+      </div> <!--|End Footer|-->
+    </div>
+  </aside> <!--|End Sidebar|-->
+
+  <!--|===================================================================
+  | Main Content
+  |=======================================================================|-->
+  <main class="main-content">
+    <a href="#" class="navbar-show-btn"><i class="fa fa-bars"></i></a>
+
+    <!--|Doted Nav|-->
+    <nav class="doted-nav fp-navbar scrollspy">
+      <ul class="nav">
+        <li class="active"><a href="#about">About</a></li>
+        <li><a href="#services">Whats I do?</a></li>
+        <li><a href="#qualification">qualification</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="admin/login.html" th:href="@{/admin/user}" class="admin-group">Admin</a></li>
+      </ul>
+    </nav> <!--|End Doted Nav|-->
+
+    <!--||Profile Cover||-->
+    <div class="profile-cover" th:object="${personalInfo}" style="background-image: url('assets/images/profile_cover.jpg')">
+      <!--Profile Area-->
+      <div class="profile-area">
+        <figure class="profile">
+          <img src="assets/images/profile_pic.jpg" alt="" th:src="@{'/' + *{photo}}">
+          <figcaption class="profile-info">
+            <h4 class="title name" th:text="*{name}">Jhone Doe</h4>
+            <p class="position" th:text="*{job}">Front-end Developer</p>
+          </figcaption>
+        </figure>
+
+        <div class="social-links">
+          <p>Where else?</p>
+          <a href="https://www.youtube.com/channel/UC_tPB2iSPTpraRj18xHKaWw" target="_blank"><i class="fa fa-youtube"></i></a>
+          <a href="https://www.facebook.com/dinglei1028" target="_blank"><i class="fa fa-facebook-square"></i></a>
+          <a href="https://twitter.com/avril_for_me" target="_blank"><i class="fa fa-twitter-square"></i></a>
+          <a href="https://github.com/coder-avril" target="_blank"><i class="fa fa-github"></i></a>
+        </div>
+      </div>
+    </div> <!--||End Profile Cover||-->
+
+    <!--||Bio||-->
+    <section id="about" th:object="${personalInfo}" class="bio section">
+      <div class="text">
+        <p th:text="*{intro}">Hello, I’m a UI/UX Designer & Front End Developer from OldYork- United State. I hold a master degree of Web Design from the World University. And scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+      </div>
+
+      <div class="personal-info">
+        <h2 class="section-title">Personal Information</h2>
+
+        <table class="personal-info">
+          <tr>
+            <td>Name</td>
+            <td>:</td>
+            <td th:text="*{name}">Jhone Doe</td>
+          </tr>
+          <tr>
+            <td>Birthday</td>
+            <td>:</td>
+            <td><i class="icon fa fa-calendar"></i> 19**/**/*5</td>
+          </tr>
+          <tr>
+            <td>Phone</td>
+            <td>:</td>
+            <td th:text="*{phone}">+(123) 456 7890</td>
+          </tr>
+          <tr>
+            <td>Address</td>
+            <td>:</td>
+            <td th:text="*{address}">1234 Heaven Stress, Beverly Hill OldYork- United State</td>
+          </tr>
+        </table>
+
+        <div class="button-group">
+          <a class="btn btn-default" href="#contact">Hire Me</a>
+          <a class="btn btn-primary" th:href="@{/download}">Download Resume</a>
+        </div>
+      </div>
+    </section> <!--||End Bio||-->
+
+    <!--||Services||-->
+    <section id="services" class="services section">
+      <h2 class="section-title">Whats I do?</h2>
+
+      <div class="row">
+        <div class="col-md-6">
+          <!--|Text Box|-->
+          <div class="text-box">
+            <i class="icon fa fa-leaf"></i>
+            <div class="text">
+              <h4 class="title">基本设计&架构</h4>
+              <p>擅长根据需求分析阶段确定的功能设计和每个模块的实现算法以及编写具体的代码，形成软件的具体设计方案，特别是针对于证券行业，有着丰富的经验</p>
+            </div>
+          </div> <!--|End Text Box|-->
+        </div>
+
+        <div class="col-md-6">
+          <!--|Text Box|-->
+          <div class="text-box">
+            <i class="icon fa fa-database"></i>
+            <div class="text">
+              <h4 class="title">软件开发</h4>
+              <p>熟练掌握多种主流framework（开发框架）的搭建和业务代码开发，例如Spring、SpringMVC、Mybatis、Apache Shiro以及Springboot等</p>
+            </div>
+          </div> <!--|End Text Box|-->
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <!--|Text Box|-->
+          <div class="text-box">
+            <i class="icon fa fa-bar-chart"></i>
+            <div class="text">
+              <h4 class="title">大数据</h4>
+              <p>掌握大数据核心基础（Linux、Shell编程等），熟悉Zookeeper、HDFS、MapReduce、Yarm等，未来是大数据和人工智能的时代，对这个领域目前持续学习中！</p>
+            </div>
+          </div> <!--|End Text Box|-->
+        </div>
+
+        <div class="col-md-6">
+          <!--|Text Box|-->
+          <div class="text-box">
+            <i class="icon fa fa-support"></i>
+            <div class="text">
+              <h4 class="title">保守运维</h4>
+              <p>多年保守开发和管理经验，擅长分析业务障害、调查BUG让系统正常平稳运行</p>
+            </div>
+          </div> <!--|End Text Box|-->
+        </div>
+      </div>
+    </section> <!--||End Services||-->
+
+    <!--||Skills||-->
+    <section id="skills" class="professional-skills section">
+      <h2 class="section-title">Professional Skills</h2>
+      <div class="row">
+        <div class="col-md-6" th:each="skill, status : ${skills}">
+          <div class="bar-wrap">
+            <h4 class="title" th:text="${skill.name} + ' - ' + ${skill.level} + '%'">HTML &amp; CSS - 93%</h4>
+            <div class="bar"><div class="progress-bar" th:style="'width: ' + ${skill.level} + '%;'"></div></div>
+          </div>
+        </div>
+      </div>
+    </section> <!--||End Skills||-->
+
+    <!--||Works/Portfolio||-->
+    <section id="qualification" class="portfolio section">
+      <h2 class="section-title">qualification</h2>
+
+      <div class="filtering-nav">
+        <div class="filter" data-filter="all">All</div>
+        <div class="filter" data-filter=".web">IT技术</div>
+        <div class="filter" data-filter=".print">管理</div>
+        <div class="filter" data-filter=".app">外语</div>
+      </div>
+
+      <div id="portfolioGallery" class="portfolio clearfix">
+        <!--/*/<th:block th:each="award : ${awards}">/*/-->
+        <a title="Title goes here" th:class="'item mix ' + ${award.type}" th:href="@{'/' + *{award.picture}}">
+          <img th:src="@{'/' + *{award.picture}}" alt="" style="margin: 5px; width: 280px ;height: 220px"/>
+          <div class="fp-overlay">
+            <div class="desc">
+              <div class="cat"><span class="fp-meta" th:text="${award.name}">Web</span></div>
+              <h4 class="title" th:text="${award.intro}">Title goes here</h4>
+            </div>
+          </div>
+        </a>
+        <!--/*/</th:block>/*/-->
+      </div>
+    </section> <!--||End Works/Portfolio||-->
+    <!--||Resume||-->
+    <div id="resume">
+      <!--|Experience|-->
+      <section class="work-experience section">
+        <h2 class="section-title">Work Experience</h2>
+
+        <div class="timeline clearfix">
+          <div class="timeline-bar"></div>
+          <!--/*/<th:block th:each="experience, status : ${experiences}">/*/-->
+          <div class="timeline-box" th:if="(${status.index} + 1)%2 == 1">
+            <div class="box-inner">
+              <header class="timeline-header">
+                <p class="meta-primary">2014 - Current</p>
+                <h4 class="title" th:text="${experience.positionName}">Web Developer</h4>
+                <p class="meta-default" th:text="${experience.companyName}">Company Name INC</p>
+              </header>
+              <div class="content">
+                <p th:text="${experience.intro}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eleifend risus sed feugiat faucibus</p>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-box even" th:if="(${status.index} + 1)%2 == 0">
+            <div class="box-inner">
+              <header class="timeline-header">
+                <p class="meta-primary">2011 - 2014</p>
+                <h4 class="title" th:text="${experience.positionName}">Trainee Web Developer</h4>
+                <p class="meta-default" th:text="${experience.companyName}">Company Name INC</p>
+              </header>
+              <div class="content">
+                <p th:text="${experience.intro}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eleifend risus sed feugiat faucibus</p>
+              </div>
+            </div>
+          </div>
+          <!--/*/</th:block>/*/-->
+        </div>
+      </section> <!--|End Experience|-->
+
+      <!--|Education|-->
+      <section class="education section">
+        <h2 class="section-title">Education</h2>
+
+        <div class="timeline clearfix">
+          <div class="timeline-bar"></div>
+          <!--/*/<th:block th:each="education, status : ${educations}">/*/-->
+          <div class="timeline-box" th:if="(${status.index} + 1)%2 == 1">
+            <div class="box-inner">
+              <header class="timeline-header">
+                <p class="meta-primary" th:text="${#dates.format(education.beginDay, 'yyyy-MM-dd')} + ' - ' + ${#dates.format(education.endDay, 'yyyy-MM-dd')}">2005 - 2006</p>
+                <h4 class="title" th:text="${education.type}">Masters Degree</h4>
+                <p class="meta-default" th:text="${education.name}">Institute Name</p>
+              </header>
+              <div class="content">
+                <p th:text="${education.intro}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eleifend risus sed feugiat faucibus</p>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-box even" th:if="(${status.index} + 1)%2 == 0">
+            <div class="box-inner">
+              <header class="timeline-header">
+                <p class="meta-primary" th:text="${#dates.format(education.beginDay, 'yyyy-MM-dd')} + ' - ' + ${#dates.format(education.endDay, 'yyyy-MM-dd')}">2003 - 2005</p>
+                <h4 class="title" th:text="${education.type}">Bachelor Degree</h4>
+                <p class="meta-default" th:text="${education.name}">Institute Name</p>
+              </header>
+              <div class="content">
+                <p th:text="${education.intro}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eleifend risus sed feugiat faucibus</p>
+              </div>
+            </div>
+          </div>
+          <!--/*/</th:block>/*/-->
+        </div>
+      </section> <!--|End Education|-->
+    </div> <!--||End Resume||-->
+    <!--||Contact||-->
+    <section id="contact" class="contact-wrapper">
+      <h2 class="section-title">Contact with Me</h2>
+
+      <!--|Contact Form|-->
+      <form id="save-form-data" class="contact-form form-validation">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="entry-field">
+              <input id="name" name="name" placeholder="Your name" required="" type="text">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="entry-field">
+              <input id="email" name="email" placeholder="info@example.com" required="" type="email">
+            </div>
+          </div>
+        </div>
+        <div class="entry-field">
+          <input id="subject" name="subject" placeholder="Subject" type="text">
+        </div>
+        <div class="entry-field">
+          <textarea id="message" rows="8" name="message" placeholder="Your massage" required=""></textarea>
+        </div>
+        <button id="submit" class="btn btn-lg btn-primary" type="submit"><i class="ion-ios-paperplane"></i> Send Mail</button>
+        <input type="reset" name="reset" style="display: none;">
+      </form> <!--|End Contact Form|-->
+    </section> <!--||Contact||-->
+  </main>
+</div>
+
+<a href="#" id="goTop"><i class="fa fa-arrow-up"></i></a>
+
+<!--|===================================================================
+| Javascripts
+|=======================================================================|-->
+<!--|Jquery|-->
+<script src="assets/js/jquery.min.js"></script>
+<!--|Mixitup|-->
+<script src="assets/js/jquery.mixitup.min.js"></script>
+<!--|Magnific Popup|-->
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<!--|Owl Carousel|-->
+<script src="assets/js/owl.carousel.min.js"></script>
+<!--|Validate|-->
+<script src="assets/js/jquery.validate.min.js"></script>
+<!--|Form|-->
+<script src="assets/js/jquery.form.js"></script>
+<!--|Bootstrap|-->
+<script src="assets/js/bootstrap.min.js"></script>
+<!--|Init|-->
+<script src="assets/js/init.js"></script>
+<script src="asset/plugin/sweetalert/sweetalert.min.js"></script>
+<script>
+  $(".nav .admin-group").click(function() {
+    window.location.href = this.href;
+  })
+
+  $("#submit").click(function() {
+    // 获得url
+    const url = "[[${#servletContext.contextPath}]]/sendInfo";
+    // 获得表单数据
+    const formData = new FormData($("#save-form-data")[0]);
+    // 通过ajax调用后台
+    sendData(url, formData, url, false);
+    // 返回false代表 禁止submit调用后台
+    return false;
+  })
+
+  function sendData(requestUrl, param, responseUrl, type) {
+    console.log(param);
+    $.ajax({
+      method: "POST", // 请求方式
+      url: requestUrl, // 请求路径
+      data: param, // 请求参数
+      dataType: "json", // 设置接受到的响应数据的格式
+      processData: false,
+      contentType: type,
+      success: function (result) { //响应成功后的回调函数
+        if (result.success) {
+          swal({
+            title: "提示",
+            text: result.message,
+            icon: "success",
+            dangerMode: true,
+            buttons: { confirm: "确定" }
+          }).then(function() { // 点击确认按钮后刷新页面
+            $("input[type=reset]").trigger("click");
+          })
+        } else {
+          swal({
+            title: "错误",
+            text: result.message,
+            icon: "error",
+            dangerMode: true,
+            buttons: { confirm: "确定" }
+          })
+        }
+      }
+    });
+  }
+</script>
+</body>
+</html>
