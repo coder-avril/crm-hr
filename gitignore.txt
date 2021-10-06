@@ -1,3 +1,0 @@
-target/
-.idea/
-crm-lding.iml
